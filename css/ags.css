@@ -11,6 +11,10 @@ h1{
   color: #008080;
 }
 
+.table{
+margin: auto;
+width: 70% !important;
+}
 th[role=columnheader]:not(.no-sort) {
 cursor: pointer;
 }
