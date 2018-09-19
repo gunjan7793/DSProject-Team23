@@ -4,6 +4,52 @@
 .dropdown-menu{
   background-color: #00CED1!important;
 }
+
+.bg-info{
+  background-color: #E5E4E4!important;
+}
+
+.turbineMenu{
+  right: 45px;
+}
+.turbineMenu .navbar-nav li {
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+.turbineMenu .navbar-nav li:hover {
+  border-bottom: 3px solid #2bdccb;
+}
+.turbineMenu .navbar-nav li.active {
+  border-bottom: 3px solid #1eb6a7;
+}
+.turbineMenu .navbar-nav a {
+  align: right;
+}
+
+.kpiData{
+  background-color: #b4e8e2;
+  border: 2px solid #000;
+  color: #000;
+  height: 170px;
+  font-size: 20px;
+}
+.kpiData1{
+  background-color: #b4e8e2;
+  border: 2px solid #000;
+  color: #000;
+  height: 150px;
+  font-size: 20px;
+}
+
+.turbineData .table{
+  border: 2px solid #000;
+  width: 100% !important;
+}
+
+.activePage {
+    background-color: #000;
+    color: white!important;
+}
+
 h1{
   text-align: center;
   padding-top: 20px;
