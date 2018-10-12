@@ -1,8 +1,10 @@
 <?php
+
+
+
 class SensorTimeSeries
 {
   public $sensorDeployedId;
-  public $sensorId;
   public $dataCollectedDate;
   public $output;
   public $heatRate;
@@ -14,9 +16,8 @@ class SensorTimeSeries
 
   public function __construct($row) {
     $this->sensorDeployedId = isset($row['sensorDeployedId']) ? intval($row['sensorDeployedId']) : null;
-    $this->sensorId = intval($row['sensorId']);
-    $this->dataCollectedDate = $row['turbineDeployedId'];
-    $this->output = doubleval($row['serialNumber']);
+    $this->dataCollectedDate = $row['dataCollectedDate'];
+    $this->output = doubleval($row['output']);
     $this->heatRate = doubleval($row['heatRate']);
     $this->compressorEfficiency = doubleval($row['compressorEfficiency']);
     $this->availability = doubleval($row['availability']);
