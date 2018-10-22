@@ -31,7 +31,7 @@ class Turbine
       $turbineItem =  new Turbine($row);
       array_push($arr, $turbineItem);
     }
-    return;
+
     return $arr;
   }
 }
