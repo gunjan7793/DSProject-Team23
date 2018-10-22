@@ -1,6 +1,12 @@
 <?php
 
+<<<<<<< HEAD
+=======
 require 'environment.php';
+// Change the working directory to this file.
+chdir(__DIR__);
+set_include_path (__DIR__);
+>>>>>>> e72908b9bd3e3afd46a53a78d1abc8cad9432676
 // Change the working directory to this file.
 chdir(__DIR__);
 set_include_path (__DIR__);
