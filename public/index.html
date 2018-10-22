@@ -1,92 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/ags.css">
-    <title>Home Page</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html"><img src="img/agsLogo.png" class="img-fluid" alt="All About You Header"></a>
-        <!-- Image from http://vtexday.vtex.com/?attachment_id=8581&lang=en -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Client Information<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="sites.html">Sites and Turbines</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="turbineKPI.html">TurbineKPI's</a>
-            </li>
-          </ul>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ags.css">
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.html"><img src="img/agsLogo.png" class="img-fluid" alt="All About You Header"></a>
+                <!-- Image from http://vtexday.vtex.com/?attachment_id=8581&lang=en -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Client Information<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sites.html">Sites and Turbines</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="turbineKPI.html">TurbineKPI's</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="">
+                <img src="img/image1.jpg" class="img-fluid" alt="Client Page Header">
+                <small>
+                Image Source: www.unsplash.com
+                </small>
+                <h1>Client Company Information</h1>
+            </div>
+            <br>
+            <div class="container" id="clientContainer">
+                <div class="row justify-content-center"  v-for="client in clients">
+                    <div class="col-sm-4">
+                        <img v-bind:src="'img/img'+client.clientId+'.png'" class="img-fluid" alt="Hoosier Image">
+                        <img src="img/image3.jpg" class="img-fluid" alt="windmill image">
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>{{client.clientId}}. {{client.clientName}}</h2>
+                        <br />
+                        <h3>Company Description</h3>
+                        <p>{{client.clientDescription}}</p>
+                        <h3>GICS Sector and Sub-industry</h3>
+                        <p>{{client.gicsSector}}, {{client.gicsSubIndustry}}</p>
+                        <h3>Headquarters</h3>
+                        <p>{{client.headquarters}}</p>
+                        <h3>Sites: 0</h3>
+                        <h3>Turbines: 0</h3>
+                        <button type="button" class="btn btn-info" style="margin-bottom:20px;">View/Add Notes</button>
+                    </div>
+                    <br />
+                    <hr />
+                </div>
+                <br />
+                <br />
+            </div>
         </div>
-      </nav>
-
-      <div class="">
-        <img src="img/image1.jpg" class="img-fluid" alt="Client Page Header">
-        <small>
-          Image Source: www.unsplash.com
-        </small>
-        <h1>Client Company Information</h1>
-      </div>
-      <br>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm-4">
-            <img src="img/image2.png" class="img-fluid" alt="Hoosier Image">
-            <img src="img/image3.jpg" class="img-fluid" alt="windmill image">
-          </div>
-          <div class="col-sm-8">
-            <h2>1. Hoosier Energy</h2><br />
-            <h3>Company Description</h3>
-            <p>Hoosier Energy is a generation and transmission cooperative providing wholesale electric wind power and services to 18 member distribution cooperatives in central and southern Indiana and southeastern Illinois. Based in Bloomington, Indiana, Hoosier Energy operates renewable energy power plants and delivers power through nearly 1700 miles of transmission network.</p>
-            <h3>GICS Sector and Sub-industry</h3>
-            <p>Energy, Energy Production</p>
-            <h3>Headquarters</h3>
-            <p>Bloomington, IN</p>
-            <h3>Sites: 0</h3>
-            <h3>Turbines: 0</h3>
-            <button type="button" class="btn btn-info" style="margin-bottom:20px;">View/Add Notes</button>
-          </div>
-          <br />
-        </div>
-        <hr />
-        <div class="row justify-content-center">
-          <div class="col-sm-4">
-            <img src="img/image5.jpg" class="img-fluid" alt="Hoosier Image">
-            <img src="img/image4.jpg" class="img-fluid" alt="windmill image">
-          </div>
-          <div class="col-sm-8">
-            <h2>2. Pacific Tidal Energy</h2><br />
-            <h3>Company Description</h3>
-            <p>Pacfici Tidal Energy makes life better for millions of people every day by providing sustainable tidal energy generation services â€“ affordable, reliable and clean. Pacific Tidal is the largest tidal electric power holding company in the United States, supplying and delivering energy through local utilities to approximately 7.4 million U.S. customers.</p>
-            <h3>GICS Sector and Sub-industry</h3>
-            <p>Energy, Energy Service</p>
-            <h3>Headquarters</h3>
-            <p>Charlotte, NC</p>
-            <h3>Sites: 3</h3>
-            <h3>Turbines: 3</h3>
-            <button type="button" class="btn btn-info" style="margin-bottom:20px;">View/Add Notes</button>
-          </div>
-          <br />
-        </div>
-
-        <br />
-        <br />
-      </div>
-    </div><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/client.app.js"></script>
+    </body>
 </html>
