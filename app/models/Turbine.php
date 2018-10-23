@@ -30,8 +30,7 @@ class Turbine
     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
       $turbineItem =  new Turbine($row);
       array_push($arr, $turbineItem);
-    }
-    return;
+    }                                                        return;                               
     return $arr;
   }
 }
