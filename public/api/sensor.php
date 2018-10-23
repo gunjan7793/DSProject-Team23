@@ -8,4 +8,5 @@ $sensorAll = Sensor::findAll();
 $json = json_encode($sensorAll, JSON_PRETTY_PRINT);
 // 3. Print
 header('Content-Type: application/json');
+
 echo $json;
