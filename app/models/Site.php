@@ -1,4 +1,5 @@
 <?php
+
 class Site
 {
     public $siteId;
@@ -15,8 +16,9 @@ class Site
     public $addrZip;
     public $addrCountry;
 
-    public function __construct($row) {
-        $this->id = isset($row['clientId']) ? intval($row['clientId']) : null;
+    public function __construct($row)
+    {
+        $this->siteId = isset($row['siteId']) ? intval($row['siteId']) : null;
         $this->clientId = intval($row['clientId']);
         $this->siteName = $row['siteName'];
         $this->siteDescription = $row['siteDescription'];
@@ -31,6 +33,30 @@ class Site
         $this->addrZip = intval($row['addrZip']);
         $this->addrCountry = $row['addrCountry'];
     }
+
+    public static function findSiteFromClientId(int $clientId)
+    {
+        // 1. Connect to the database
+        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+
+        // 2. Prepare the query
+        $sql = 'SELECT * FROM Site WHERE clientId = ?';
+
+        $statement = $db->prepare($sql);
+        // 3. Run the query
+        $success = $statement->execute([$clientId]);
+        // 4. Handle the results
+        $arr = [];
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+            $siteItem = new Site($row);
+
+            array_push($arr, $siteItem);
+        }
+        return $arr;
+    }
+
+
     public static function findAll() {
         // 1. Connect to the database
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
@@ -47,20 +73,5 @@ class Site
         }
         return $arr;
     }
-    public static function findSiteFromClientId(int $clientId) {
-        // 1. Connect to the database
-        $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-        // 2. Prepare the query
-        $sql = 'SELECT * FROM Site WHERE clientId = ?';
-        $statement = $db->prepare($sql);
-        // 3. Run the query
-        $success = $statement->execute([$clientId]);
-        // 4. Handle the results
-        $arr = [];
-        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $siteItem = new Site($row);
-            array_push($arr, $siteItem);
-        }
-        return $arr;
-    }
+
 }
