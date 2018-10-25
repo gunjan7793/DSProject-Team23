@@ -42,19 +42,23 @@
         <div class="col">
           <table class="table">
             <thead>
-
+              <tr>
+                <th>Site Name</th>
+                <th>Site Description</th>
+                <th>Primary Contact</th>
+                <th>Site Capacity</th>
+                <th>Commercial Date</th>
+                <th>Address</th>
+              </tr>
             </thead>
-            <tbody  v-for="site in sites">
+            <tbody v-for="site in sites">
               <tr>
                 <td>{{site.siteName}}</td>
                 <td>{{site.siteDescription}}</td>
                 <td>{{site.primaryContact}}</td>
                 <td>{{site.capacity}}</td>
                 <td>{{site.commercialDate}}</td>
-                <td>{{site.addrCity}}</td>
-                <td>{{site.addrState}}</td>
-                <td>{{site.addrState}}</td>
-                <td>{{site.addrCountry}}</td>
+                <td>{{site.addrLine1}} {{site.addrLine2}} {{site.addrCity}} {{site.addrState}} {{site.addrZip}} {{site.addrCountry}}</td>
               </tr>
             </tbody>
           </table>
