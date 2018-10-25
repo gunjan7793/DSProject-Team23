@@ -5,6 +5,7 @@ var clientApp = new Vue({
 	},
 	computed: {},
 	methods: {},
+
 	created() {
 		fetch('api/client.php')
 			.then(response => response.json())
