@@ -57,8 +57,10 @@
                         <p>{{client.headquarters}}</p>
                         <h3>Sites: 0</h3>
                         <h3>Turbines: 0</h3>
-                        <button type="button" class="btn btn-info" style="margin-bottom:20px;">View/Add Notes</button>
-                        <button type="button" class="btn btn-info" @click="goToSites(client.clientId)">View Sites</button>
+                        <div class="row">
+                          <button type="button" class="btn btn-info" style="margin-bottom:20px;">View/Add Notes</button>
+                          <button type="button" class="btn btn-info" @click="goToSites(client.clientId)">View Sites</button>
+                        </div>
                     </div>
                     <br />
                     <hr />
@@ -71,6 +73,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="js/client.app.js"></script>
-        
+
     </body>
 </html>

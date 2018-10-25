@@ -7,7 +7,11 @@ var siteApp = new Vue({
 	methods: {},
 
 	created() {
-		fetch('api/site.php')
+		const url = new URL(window.location.href);
+    const clientId = url.searchParams.get('clientId');
+    console.log('Client: '+ clientId);
+
+		fetch('api/site.php?clientId=' + clientId)
 			.then(response => response.json())
 			.then(json => {
 				siteApp.sites = json
