@@ -11,13 +11,13 @@ var turbineDeployedApp = new Vue({
     const siteId = url.searchParams.get('siteId');
     console.log('Site: '+ siteId);
 
-		fetch('api/turbineDeployed.php?siteId=' + siteId)
+		fetch('api/turbineDeployed.php?siteId='+siteId)
 			.then(response => response.json())
 			.then(json => {
 				turbineDeployedApp.turbines = json
 			})
 			.catch(err => {
-				console.log('Site fetch error: ');
+				console.log('Turbine fetch error: ');
 				console.log(err);
 			})
 	}
