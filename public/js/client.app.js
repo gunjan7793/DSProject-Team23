@@ -4,7 +4,11 @@ var clientApp = new Vue({
 		clients: []
 	},
 	computed: {},
-	methods: {},
+	methods: {
+		goToSites(clientId){
+			window.location='sites.html?clientId='+clientId;	
+		}
+	},
 
 	created() {
 		fetch('api/client.php')
