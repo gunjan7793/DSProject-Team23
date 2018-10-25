@@ -2,7 +2,7 @@
 
 require '../../app/common.php';
 $siteId = intval($_GET['siteId'] ?? 0);
-if ($clientId < 1) {
+if ($siteId < 1) {
   throw new Exception('Invalid Site ID');
 }
 $turbineId = intval($_GET['turbineId'] ?? 0);
