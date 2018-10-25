@@ -41,30 +41,11 @@ class TurbineDeployed
     return $arr;
   }
 
-  public static function findTurbineFromSiteTurbineId(int $siteId, int $turbineId) {
-    // 1. Connect to the database
-    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-    // 2. Prepare the query
-    $sql = 'SELECT * FROM TurbineDeployed WHERE siteId = ? AND turbineId = ?';
-    $statement = $db->prepare($sql);
-    // 3. Run the query
-    $success = $statement->execute([$siteId],[$turbineId]);
-    // 4. Handle the results
-    $arr = [];
-    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-      $turbineDeployedItem =  new TurbineDeployed($row);
-      array_push($arr, $turbineDeployedItem);
-    }
-    return $arr;
-  }
-
-  // public static function findTurbinesDeployed() {
+  // public static function findTurbineFromSiteTurbineId(int $siteId, int $turbineId) {
   //   // 1. Connect to the database
   //   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
   //   // 2. Prepare the query
-  //   $sql = 'SELECT s.siteName AS siteName, COUNT(td.turbineId) AS noOfTurbines, t.turbineName AS turbineName
-  //           FROM TurbineDeployed AS td, Site AS s, Turbine AS t
-  //           WHERE td.siteId = s.siteId AND td.turbineId = t.turbineId GROUP BY td.siteId;';
+  //   $sql = 'SELECT * FROM TurbineDeployed WHERE siteId = ? AND turbineId = ?';
   //   $statement = $db->prepare($sql);
   //   // 3. Run the query
   //   $success = $statement->execute([$siteId],[$turbineId]);
@@ -77,4 +58,20 @@ class TurbineDeployed
   //   return $arr;
   // }
 
+  public static function findTurbineFromSiteId(int $siteId) {
+    // 1. Connect to the database
+    $db = new PDO(DB_SERVER, DB_USER, DB_PW);
+    // 2. Prepare the query
+    $sql = 'SELECT * FROM TurbineDeployed WHERE siteId = ?';
+    $statement = $db->prepare($sql);
+    // 3. Run the query
+    $success = $statement->execute([$siteId]);
+    // 4. Handle the results
+    $arr = [];
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+      $turbineDeployedItem =  new TurbineDeployed($row);
+      array_push($arr, $turbineDeployedItem);
+    }
+    return $arr;
+  }
 }

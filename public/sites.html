@@ -60,7 +60,7 @@
                 <td width="10%">{{site.capacity}}</td>
                 <td width="10%">{{site.commercialDate}}</td>
                 <td width="15%">{{site.addrLine1}} {{site.addrLine2}} {{site.addrCity}} {{site.addrState}} {{site.addrZip}} {{site.addrCountry}}</td>
-                <td width="10%"><button type="button" class="btn btn-info">View Turbines</button></td>
+                <td width="10%"><button type="button" class="btn btn-info" @click="goToTurbines(site.siteId)">View Turbines</button></td>
               </tr>
             </tbody>
           </table>

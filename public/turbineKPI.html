@@ -56,39 +56,32 @@
             </nav>
           </div>
 
-          <div class="col-sm-9">
-            <div class="row turbineData">
+          <div class="col-sm-9" id="turbineContainer">
+            <div class="row turbineData" v-for="turbine in turbines">
               <table  class="table table-striped table-sm">
                 <thead>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Turbine Name</td>
-                    <td>3SA.01</td>
+                    <td>Turbine ID</td>
+                    <td>{{turbine.turbineId}}</td>
                     <td></td>
                     <td>Serial Number</td>
-                    <td>9HA-01-IU0008</td>
+                    <td>{{turbine.serialNumber}}</td>
                   </tr>
                   <tr>
-                    <td>Client Name</td>
-                    <td>Pacific Tidal Energy</td>
+                    <td>Site ID</td>
+                    <td>{{turbine.siteId}}</td>
                     <td></td>
-                    <td>Site Name</td>
-                    <td>Emerald Waters Plant</td>
-                  </tr>
-                  <tr>
                     <td>Deployed Date</td>
-                    <td>7/1/2016</td>
-                    <td></td>
-                    <td>Last Planned Outage Date</td>
-                    <td>6/1/2016</td>
+                    <td>{{turbine.deployedDate}}</td>
                   </tr>
                   <tr>
                     <td>Last Unplanned Outage Date</td>
-                    <td>N/A</td>
+                    <td>{{turbine.lastUnplannedOutageDate}}</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>Last Planned Outage Date</td>
+                    <td>{{turbine.lastPlannedOutageDate}}</td>
                   </tr>
                 </tbody>
               </table>

@@ -4,7 +4,11 @@ var siteApp = new Vue({
 		sites: []
 	},
 	computed: {},
-	methods: {},
+	methods: {
+		goToTurbines(siteId){
+			window.location='turbineKPI.html?siteId='+siteId;
+		}
+	},
 
 	created() {
 		const url = new URL(window.location.href);
