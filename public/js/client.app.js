@@ -1,5 +1,3 @@
-
-
 var clientApp = new Vue({
 	el: '#clientContainer',
 	data: {
