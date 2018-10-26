@@ -46,32 +46,27 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="turbineKPI.html">Turbine 1</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Turbine 2</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Turbine 3</a>
-                </li>
+
               </ul>
             </nav>
           </div>
 
-          <div class="col-sm-9" id="turbineContainer">
+          <div class="col-sm-9" id="turbineDetailsContainer">
             <div class="row turbineData" v-for="turbine in turbines">
               <table  class="table table-striped table-sm">
                 <thead>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Turbine ID</td>
-                    <td>{{turbine.turbineId}}</td>
+                    <td>Turbine Name</td>
+                    <td>{{turbine.turbineName}}</td>
                     <td></td>
-                    <td>Serial Number</td>
-                    <td>{{turbine.serialNumber}}</td>
+                    <td>Turbine Description</td>
+                    <td>{{turbine.turbineDescription}}</td>
                   </tr>
                   <tr>
-                    <td>Site ID</td>
-                    <td>{{turbine.siteId}}</td>
+                    <td>Serial Number</td>
+                    <td>{{turbine.serialNumber}}</td>
                     <td></td>
                     <td>Deployed Date</td>
                     <td>{{turbine.deployedDate}}</td>

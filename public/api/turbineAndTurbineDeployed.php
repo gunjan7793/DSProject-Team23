@@ -7,9 +7,9 @@ if ($siteId < 1) {
 }
 
 
-$turbinesDeployed = TurbineDeployed::findTurbineFromSiteId($siteId);
+$turbinesAndTurbineDeployed = TurbineAndTurbineDeployed::findTurbineDetailsFromSiteId($siteId);
 
-$json = json_encode($turbinesDeployed, JSON_PRETTY_PRINT);
+$json = json_encode($turbinesAndTurbineDeployed, JSON_PRETTY_PRINT);
 
 header('Content-Type: application/json');
 echo $json;
