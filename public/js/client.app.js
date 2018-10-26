@@ -40,7 +40,6 @@ var clientApp = new Vue({
 			});
 			// Reset workForm
 			this.noteForm = this.getEmptyNotes(id);
-		}
 	},
 	getEmptyNotes(id) {
 		return {
