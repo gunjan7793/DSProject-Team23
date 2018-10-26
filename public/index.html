@@ -56,24 +56,45 @@
                         <h3>Headquarters</h3>
                         <p>{{client.headquarters}}</p>
                         <div class="row">
-                            <button type="button" class="btn btn-info" style="margin:15px;" data-toggle="collapse" data-target="#notes" @click="getNotes(client.clientId)">View/Add Notes</button>
+                            <button type="button" class="btn btn-info" style="margin:15px;" @click="showModal(client)">View/Add Notes</button>
                             <button type="button" class="btn btn-info" style="margin:15px;" @click="goToSites(client.clientId)">View Sites</button>
                         </div>
-                        <div class="collapse" id="notes">
-                            <table>
-                                <thead>
-                                    <td>
-                                        <strong>Notes</strong>
-                                    </td>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="note in notes">
-                                        <td>
-                                            {{note.notes}}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="modal fade" id="notesModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="hoosierModalTitle">
+                                            Notes
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr v-for="note in clientNotes">
+                                                    <td>{{note.notes}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <form id="newNotes" @submit.prevent="submitNote($event,id)">
+                                        <div class="form-group container">
+                                            <label for="clientNote">Notes:</label>
+                                            <input type="text" class="form-control" id="clientNote"
+                                                v-model="noteForm.notes" placeholder="Enter notes">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         <hr />
                         <br />
