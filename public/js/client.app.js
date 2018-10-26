@@ -1,12 +1,24 @@
 var clientApp = new Vue({
 	el: '#clientContainer',
 	data: {
-		clients: []
+		clients: [],
+		notes:	[]
 	},
 	computed: {},
 	methods: {
 		goToSites(clientId){
-			window.location='sites.html?clientId='+clientId;	
+			window.location='sites.html?clientId='+clientId;
+		},
+		getNotes:function(clientId){
+			fetch('api/notesOnClients.php?clientId='+clientId)
+				.then(response => response.json())
+				.then(json => {
+					clientApp.notes = json
+				})
+				.catch(err => {
+					console.log('Client fetch error: ');
+					console.log(err);
+				})
 		}
 	},
 
