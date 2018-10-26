@@ -50,7 +50,7 @@ var clientApp = new Vue({
 	showModal: function (client) {
 		this.id=client.clientId;
 		this.notes=[];
-		fetch('api/notesOnClients.php?clientId='+clientId)
+		fetch('api/notesOnClients.php?clientId='+client.clientId)
 		.then(response => response.json())
 		.then(json => {
 			clientApp.notes = json
