@@ -44,7 +44,7 @@
                 <div class="row justify-content-center"  v-for="client in clients">
                     <div class="col-sm-4">
                         <img v-bind:src="'img/img'+client.clientId+'.png'" class="img-fluid" alt="Hoosier Image">
-                        <img src="img/image3.jpg" class="img-fluid" alt="windmill image">
+                        <img v-bind:src="'img/pic'+client.clientId+'.jpg'" class="img-fluid" alt="Windmill Image">
                     </div>
                     <div class="col-sm-8">
                         <h2>{{client.clientId}}. {{client.clientName}}</h2>
