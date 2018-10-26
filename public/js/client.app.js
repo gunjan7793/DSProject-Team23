@@ -2,7 +2,12 @@ var clientApp = new Vue({
 	el: '#clientContainer',
 	data: {
 		clients: [],
-		notes:	[]
+		notes:	[
+			{
+				"notes":'',
+				"clientId":''
+			}
+		]
 	},
 	computed: {},
 	methods: {
