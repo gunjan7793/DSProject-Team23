@@ -82,11 +82,13 @@ var turbineAndTurbineDeployedApp = new Vue({
 		fetch('api/turbineAndTurbineDeployed.php?siteId='+siteId)
 		.then(response => response.json())
 		.then(json => {
-			turbineAndTurbineDeployedApp.turbines = json
+			turbineAndTurbineDeployedApp.turbines = json;
+			this.fetchTurbineData(turbineAndTurbineDeployedApp.turbines[0].turbineDeployedId);
 		})
 		.catch(err => {
 			console.log('Turbine fetch error: ');
 			console.log(err);
 		})
+
 	}
 });
