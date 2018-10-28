@@ -39,28 +39,28 @@
       </div>
       <br>
       <div class="container" id="siteContainer">
-        <div class="col">
-          <table class="table" style="width=100%">
+        <div class="col-lg-10">
+          <table class="table">
             <thead>
               <tr>
-                <th width="15%">Site Name</th>
-                <th width="30%">Site Description</th>
-                <th width="10%">Primary Contact</th>
-                <th width="10%">Site Capacity</th>
-                <th width="10%">Commercial Date</th>
-                <th width="15%">Address</th>
-                <th width="10%"> </th>
+                <th >Site Name</th>
+                <th >Site Description</th>
+                <th >Primary Contact</th>
+                <th >Site Capacity</th>
+                <th >Commercial Date</th>
+                <th >Address</th>
+                <th > </th>
               </tr>
             </thead>
             <tbody v-for="site in sites">
               <tr>
-                <td width="15%">{{site.siteName}}</td>
-                <td width="30%">{{site.siteDescription}}</td>
-                <td width="10%">{{site.primaryContact}}</td>
-                <td width="10%">{{site.capacity}}</td>
-                <td width="10%">{{site.commercialDate}}</td>
-                <td width="15%">{{site.addrLine1}} {{site.addrLine2}} {{site.addrCity}} {{site.addrState}} {{site.addrZip}} {{site.addrCountry}}</td>
-                <td width="10%"><button type="button" class="btn btn-info" @click="goToTurbines(site.siteId)">View Turbines</button></td>
+                <td >{{site.siteName}}</td>
+                <td >{{site.siteDescription}}</td>
+                <td >{{site.primaryContact}}</td>
+                <td >{{site.capacity}}</td>
+                <td >{{site.commercialDate}}</td>
+                <td >{{site.addrLine1}} {{site.addrLine2}} {{site.addrCity}} {{site.addrState}} {{site.addrZip}} {{site.addrCountry}}</td>
+                <td ><button type="button" class="btn btn-info" @click="goToTurbines(site.siteId)">View Turbines</button></td>
               </tr>
             </tbody>
           </table>
