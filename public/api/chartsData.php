@@ -3,7 +3,7 @@ require '../../app/common.php';
 
 $turbineDeployedId = intval($_GET['turbineDeployedId'] ?? 0);
 
-if ($projectId < 1) {
+if ($turbineDeployedId < 1) {
   throw new Exception('Invalid Turbine Deployed ID');
 }
 
