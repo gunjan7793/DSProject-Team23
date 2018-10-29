@@ -89,8 +89,7 @@ opacity: 1;
   color: #000;
   height: 300px;
   font-size: 20px;
-  padding-top: 20px;
-
+  padding: 20px 20px 20px 20px;
 }
 
 .turbineData .table{
