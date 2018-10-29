@@ -13,6 +13,9 @@ var turbineAndTurbineDeployedApp = new Vue({
 				turbineAndTurbineDeployedApp.output = json;
 				this.buildOutputChart();
 				this.buildHeatRateChart();
+				this.buildCompressorEfficiencyChart();
+				this.buildAvailability();
+				this.buildReliability();
 				this.buildFiredHoursChart();
 				this.buildTripsChart();
 				this.buildStartsChart();
@@ -145,6 +148,118 @@ var turbineAndTurbineDeployedApp = new Vue({
                 }]
             });
         },
+
+		buildCompressorEfficiencyChart(){
+			Highcharts.chart('compressorEfficiencyChart', {
+				chart: {
+					type: 'line'
+				},
+
+				title: {
+					text: 'Compressor Efficiency'
+				},
+				xAxis: {
+					type: 'datetime',
+					title: {
+						text: 'Date'
+					}
+				},
+				yAxis: [{
+					className: 'highcharts-color-0',
+					title: {
+						text: 'Compressor Efficiency'
+					}
+				}],
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					}
+				},
+
+				series: [{
+					name: 'Compressor Efficiency',
+					data: this.output.map( item => [Date.parse(item.date), item.compressorEfficiency] )
+				}]
+			});
+		},
+
+		buildAvailabilityChart(){
+			Highcharts.chart('availabilityChart', {
+				chart: {
+					type: 'line'
+				},
+
+				title: {
+					text: 'Availability Efficiency'
+				},
+				xAxis: {
+					type: 'datetime',
+					title: {
+						text: 'Date'
+					}
+				},
+				yAxis: [{
+					className: 'highcharts-color-0',
+					title: {
+						text: 'Availability'
+					}
+				}],
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					}
+				},
+
+				series: [{
+					name: 'Availability',
+					color: '#000',
+					data: this.output.map( item => [Date.parse(item.date), item.availability] )
+				}]
+			});
+		},
+
+		buildReliabilityChart(){
+			Highcharts.chart('reliabilityChart', {
+				chart: {
+					type: 'line'
+				},
+
+				title: {
+					text: 'Reliability'
+				},
+				xAxis: {
+					type: 'datetime',
+					title: {
+						text: 'Date'
+					}
+				},
+				yAxis: [{
+					className: 'highcharts-color-0',
+					title: {
+						text: 'Reliability'
+					}
+				}],
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					}
+				},
+
+				series: [{
+					name: 'Reliability',
+					data: this.output.map( item => [Date.parse(item.date), item.reliability] )
+				}]
+			});
+		},
 
 		buildFiredHoursChart(){
             Highcharts.chart('firedHoursChart', {

@@ -7,9 +7,9 @@ class ChartsData
     public $date;
     public $output;
     public $heatRate;
-    // public $compressorEfficiency;
-    // public $availability;
-    // public $reliability;
+    public $compressorEfficiency;
+    public $availability;
+    public $reliability;
     public $firedHours;
     public $trips;
     public $starts;
@@ -19,9 +19,9 @@ class ChartsData
       $this->date = $row['date'];
       $this->output = doubleval($row['output']);
       $this->heatRate = doubleval($row['heatRate']);
-      // $this->compressorEfficiency = doubleval($row['compressorEfficiency']);
-      // $this->availability = doubleval($row['availability']);
-      // $this->reliability = doubleval($row['reliability']);
+      $this->compressorEfficiency = doubleval($row['compressorEfficiency']);
+      $this->availability = doubleval($row['availability']);
+      $this->reliability = doubleval($row['reliability']);
       $this->firedHours = doubleval($row['firedHours']);
       $this->trips = intval($row['trips']);
       $this->starts = intval($row['starts']);
