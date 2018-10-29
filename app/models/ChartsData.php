@@ -6,7 +6,7 @@ class ChartsData
     // public $sensorDeployedId;
     public $date;
     public $output;
-    // public $heatRate;
+    public $heatRate;
     // public $compressorEfficiency;
     // public $availability;
     // public $reliability;
@@ -17,7 +17,7 @@ class ChartsData
       // $this->sensorDeployedId = isset($row['sensorDeployedId']) ? intval($row['sensorDeployedId']) : null;
       $this->date = $row['date'];
       $this->output = doubleval($row['output']);
-      // $this->heatRate = doubleval($row['heatRate']);
+      $this->heatRate = doubleval($row['heatRate']);
       // $this->compressorEfficiency = doubleval($row['compressorEfficiency']);
       // $this->availability = doubleval($row['availability']);
       // $this->reliability = doubleval($row['reliability']);
@@ -28,9 +28,12 @@ class ChartsData
     public static function fetchByTurbineDeployedId(int $turbineDeployedId) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
-        $sql = 'SELECT DATE(dataCollectedDate) AS date, SUM(output) AS output
+        $sql = 'SELECT DATE(dataCollectedDate) AS date, SUM(output) AS output, SUM(heatRate) AS heatRate,
+                SUM(compressorEfficiency) AS compressorEfficiency, SUM(availability) AS availability,
+                SUM(reliability) AS reliability, SUM(firedHours) AS firedHours, SUM(trips) AS trips,
+                SUM(starts) AS starts
                 FROM SensorTimeSeries AS sts, SensorDeployed AS sd
-                WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = ?
+                WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = 1
                 GROUP BY DATE(dataCollectedDate) ORDER BY date;';
 
         $statement = $db->prepare($sql);
