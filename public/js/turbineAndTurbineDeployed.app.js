@@ -13,6 +13,8 @@ var turbineAndTurbineDeployedApp = new Vue({
 				turbineAndTurbineDeployedApp.output = json;
 				this.buildOutputChart();
 				this.buildHeatRateChart();
+				this.buildTripsChart();
+				this.buildStartsChart();
 			} )
 			.catch( err => {
 				console.log('TURBINE DATA FETCH ERROR:');
@@ -143,23 +145,23 @@ var turbineAndTurbineDeployedApp = new Vue({
             });
         },
 
-		buildSomeChart(){
-			Highcharts.chart('someChart', {
+		buildTripsChart(){
+			Highcharts.chart('tripsChart', {
 				chart: {
 					type: 'line'
 				},
 				title: {
-					text: 'Turbine Heat Rate'
+					text: 'Turbine Trips'
 				},
 				xAxis: {
 					type: 'datetime',
 					title: {
-						text: 'Output'
+						text: 'Date'
 					}
 				},
 				yAxis: {
 					title: {
-						text: 'Heat Rate'
+						text: 'Trips'
 					}
 				},
 				plotOptions: {
@@ -171,11 +173,44 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				series: [{
-					name: 'Heat Rate Value',
-					data: this.output.map( item => [item.output, item.heatRate] )
+					name: 'Trips Value',
+					data: this.output.map( item => [Date.parse(item.date), item.trips] )
 				}]
 			});
+		},
 
+		buildStartsChart(){
+			Highcharts.chart('startsChart', {
+				chart: {
+					type: 'line'
+				},
+				title: {
+					text: 'Turbine starts'
+				},
+				xAxis: {
+					type: 'datetime',
+					title: {
+						text: 'Date'
+					}
+				},
+				yAxis: {
+					title: {
+						text: 'Starts'
+					}
+				},
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					}
+				},
+				series: [{
+					name: 'Starts Value',
+					data: this.output.map( item => [Date.parse(item.date), item.starts] )
+				}]
+			});
 		},
 	},
 

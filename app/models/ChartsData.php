@@ -11,7 +11,8 @@ class ChartsData
     // public $availability;
     // public $reliability;
     // public $firedHours;
-    // public $trips;
+    public $trips;
+    public $starts;
 
     public function __construct($row) {
       // $this->sensorDeployedId = isset($row['sensorDeployedId']) ? intval($row['sensorDeployedId']) : null;
@@ -22,7 +23,9 @@ class ChartsData
       // $this->availability = doubleval($row['availability']);
       // $this->reliability = doubleval($row['reliability']);
       // $this->firedHours = doubleval($row['firedHours']);
-      // $this->trips = intval($row['trips']);
+      $this->trips = intval($row['trips']);
+      $this->starts = intval($row['starts']);
+
     }
 
     public static function fetchByTurbineDeployedId(int $turbineDeployedId) {
