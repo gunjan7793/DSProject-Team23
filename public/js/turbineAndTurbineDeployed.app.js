@@ -14,8 +14,8 @@ var turbineAndTurbineDeployedApp = new Vue({
 				this.buildOutputChart();
 				this.buildHeatRateChart();
 				this.buildCompressorEfficiencyChart();
-				this.buildAvailability();
-				this.buildReliability();
+				this.buildAvailabilityChart();
+				this.buildReliabilityChart();
 				this.buildFiredHoursChart();
 				this.buildTripsChart();
 				this.buildStartsChart();
