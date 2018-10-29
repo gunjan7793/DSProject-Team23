@@ -10,7 +10,7 @@ class ChartsData
     // public $compressorEfficiency;
     // public $availability;
     // public $reliability;
-    // public $firedHours;
+    public $firedHours;
     public $trips;
     public $starts;
 
@@ -22,7 +22,7 @@ class ChartsData
       // $this->compressorEfficiency = doubleval($row['compressorEfficiency']);
       // $this->availability = doubleval($row['availability']);
       // $this->reliability = doubleval($row['reliability']);
-      // $this->firedHours = doubleval($row['firedHours']);
+      $this->firedHours = doubleval($row['firedHours']);
       $this->trips = intval($row['trips']);
       $this->starts = intval($row['starts']);
 

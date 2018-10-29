@@ -13,6 +13,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 				turbineAndTurbineDeployedApp.output = json;
 				this.buildOutputChart();
 				this.buildHeatRateChart();
+				this.buildFiredHoursChart();
 				this.buildTripsChart();
 				this.buildStartsChart();
 			} )
@@ -145,6 +146,41 @@ var turbineAndTurbineDeployedApp = new Vue({
             });
         },
 
+		buildFiredHoursChart(){
+            Highcharts.chart('firedHoursChart', {
+                chart: {
+                    type: 'column'
+                },
+
+                title: {
+                    text: 'FiredHours'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    title: {
+                        text: 'Date'
+                    }
+                },
+                yAxis: [{
+                    className: 'highcharts-color-0',
+                    title: {
+                        text: 'Fired Hours'
+                    }
+                }],
+
+                plotOptions: {
+                    column: {
+                        borderRadius: 5
+                    }
+                },
+                series: [{
+                    name: 'Trips',
+                    data: this.output.map( item => [Date.parse(item.date), item.firedHours] )
+                }]
+
+            });
+		},
+
 		buildTripsChart(){
 			Highcharts.chart('tripsChart', {
 				chart: {
@@ -173,7 +209,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				series: [{
-					name: 'Trips Value',
+					name: 'Number of Trips',
 					data: this.output.map( item => [Date.parse(item.date), item.trips] )
 				}]
 			});
@@ -185,7 +221,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 					type: 'line'
 				},
 				title: {
-					text: 'Turbine starts'
+					text: 'Turbine Starts'
 				},
 				xAxis: {
 					type: 'datetime',
@@ -207,7 +243,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				series: [{
-					name: 'Starts Value',
+					name: 'Number of Starts',
 					data: this.output.map( item => [Date.parse(item.date), item.starts] )
 				}]
 			});

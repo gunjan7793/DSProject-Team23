@@ -146,3 +146,19 @@ th[role=columnheader]:not(.no-sort):hover:after {
 visibility: visible;
 opacity: 1;
 }
+
+.highcharts-color-0 {
+    fill: #137adb;
+    stroke: #137adb;
+}
+
+.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+    stroke: #137adb;
+}
+
+.highcharts-axis.highcharts-color-0 text {
+    fill: #137adb;
+}
+.highcharts-yaxis .highcharts-axis-line {
+    stroke-width: 2px;
+}
