@@ -147,7 +147,7 @@ visibility: visible;
 opacity: 1;
 }
 
-.highcharts-color-0 {
+/* .highcharts-color-0 {
     fill: #137adb;
     stroke: #137adb;
 }
@@ -161,4 +161,4 @@ opacity: 1;
 }
 .highcharts-yaxis .highcharts-axis-line {
     stroke-width: 2px;
-}
+} */

@@ -149,7 +149,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 		buildFiredHoursChart(){
             Highcharts.chart('firedHoursChart', {
                 chart: {
-                    type: 'column'
+                    type: 'line'
                 },
 
                 title: {
@@ -167,14 +167,17 @@ var turbineAndTurbineDeployedApp = new Vue({
                         text: 'Fired Hours'
                     }
                 }],
+				plotOptions: {
+					line: {
+						dataLabels: {
+							enabled: false
+						},
+						enableMouseTracking: true
+					}
+				},
 
-                plotOptions: {
-                    column: {
-                        borderRadius: 5
-                    }
-                },
                 series: [{
-                    name: 'Trips',
+                    name: 'Fired Hours',
                     data: this.output.map( item => [Date.parse(item.date), item.firedHours] )
                 }]
 
@@ -184,7 +187,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 		buildTripsChart(){
 			Highcharts.chart('tripsChart', {
 				chart: {
-					type: 'line'
+					type: 'column'
 				},
 				title: {
 					text: 'Turbine Trips'
@@ -201,13 +204,10 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				plotOptions: {
-					line: {
-						dataLabels: {
-							enabled: false
-						},
-						enableMouseTracking: true
-					}
-				},
+                    column: {
+                        borderRadius: 5
+                    }
+                },
 				series: [{
 					name: 'Number of Trips',
 					data: this.output.map( item => [Date.parse(item.date), item.trips] )
@@ -218,7 +218,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 		buildStartsChart(){
 			Highcharts.chart('startsChart', {
 				chart: {
-					type: 'line'
+					type: 'column'
 				},
 				title: {
 					text: 'Turbine Starts'
@@ -235,13 +235,11 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				plotOptions: {
-					line: {
-						dataLabels: {
-							enabled: false
-						},
-						enableMouseTracking: true
-					}
-				},
+                    column: {
+                        borderRadius: 5
+                    }
+                },
+
 				series: [{
 					name: 'Number of Starts',
 					data: this.output.map( item => [Date.parse(item.date), item.starts] )
