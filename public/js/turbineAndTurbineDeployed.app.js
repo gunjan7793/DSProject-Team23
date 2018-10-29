@@ -75,8 +75,77 @@ var turbineAndTurbineDeployedApp = new Vue({
 			});
 		},
 
-		buildHeatRateChart(){
-			Highcharts.chart('heatRateChart', {
+		buildHeatRateChart() {
+            Highcharts.chart('heatRateChart', {
+                chart: {
+                    type: 'scatter',
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: 'Heat Rate vs Output'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    title: {
+                        enabled: true,
+                        text: 'Output'
+                    },
+                    startOnTick: true,
+                    endOnTick: true,
+                    showLastLabel: true
+                },
+                yAxis: {
+                    title: {
+                        text: 'Heat Rate'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 100,
+                    y: 70,
+                    floating: true,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+                    borderWidth: 1
+                },
+                plotOptions: {
+                    scatter: {
+                        marker: {
+                            radius: 5,
+                            states: {
+                                hover: {
+                                    enabled: true,
+                                    lineColor: 'rgb(100,100,100)'
+                                }
+                            }
+                        },
+                        states: {
+                            hover: {
+                                marker: {
+                                    enabled: false
+                                }
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<b>{series.name}</b><br>',
+                            pointFormat: '{point.x} cm, {point.y} kg'
+                        }
+                    }
+                },
+                series: [{
+                    name: 'HeatRate',
+                    color: 'rgba(223, 83, 83, .5)',
+                    data: this.sensorTimeData.map(entry => [entry.output, entry.heatRate])
+                }]
+            });
+            this.buildEfficiencyChart();
+        },
+
+		buildSomeChart(){
+			Highcharts.chart('someChart', {
 				chart: {
 					type: 'line'
 				},
