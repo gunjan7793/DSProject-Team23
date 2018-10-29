@@ -89,6 +89,8 @@ opacity: 1;
   color: #000;
   height: 300px;
   font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .turbineData .table{
