@@ -73,7 +73,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 		},
 
 		buildHeatRateChart(){
-			Highcharts.chart('container', {
+			Highcharts.chart('heatRateChart', {
 				chart: {
 					type: 'line'
 				},
