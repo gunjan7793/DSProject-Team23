@@ -26,11 +26,14 @@ var turbineAndTurbineDeployedApp = new Vue({
 					text: 'Cumulative Turbine Output'
 				},
 				xAxis: {
-					type: 'datetime'
+					type: 'datetime',
+					title: {
+						text: 'Date'
+					}
 				},
 				yAxis: {
 					title: {
-						text: 'Hours'
+						text: 'Output'
 					}
 				},
 				legend: {
@@ -100,8 +103,8 @@ var turbineAndTurbineDeployedApp = new Vue({
 					}
 				},
 				series: [{
-					name: 'Blaahhh',
-					data: this.output.map( item => [Date.parse(item.date), item.heatRate] )
+					name: 'Heat Rate Value',
+					data: this.output.map( item => [item.output, item.heatRate] )
 				}]
 			});
 

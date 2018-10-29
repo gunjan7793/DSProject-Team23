@@ -33,7 +33,7 @@ class ChartsData
                 SUM(reliability) AS reliability, SUM(firedHours) AS firedHours, SUM(trips) AS trips,
                 SUM(starts) AS starts
                 FROM SensorTimeSeries AS sts, SensorDeployed AS sd
-                WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = 1
+                WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = ?
                 GROUP BY DATE(dataCollectedDate) ORDER BY date;';
 
         $statement = $db->prepare($sql);
