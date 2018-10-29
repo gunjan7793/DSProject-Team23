@@ -136,12 +136,11 @@ var turbineAndTurbineDeployedApp = new Vue({
                     }
                 },
                 series: [{
-                    name: 'HeatRate',
+                    name: 'Heat Rate Value',
                     color: 'rgba(223, 83, 83, .5)',
-                    data: this.sensorTimeData.map(entry => [entry.output, entry.heatRate])
+                    data: this.output.map( item => [item.output, item.heatRate] )
                 }]
             });
-            this.buildEfficiencyChart();
         },
 
 		buildSomeChart(){
