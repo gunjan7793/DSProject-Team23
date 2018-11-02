@@ -35,6 +35,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 			this.buildTripsChart();
 			this.buildStartsChart();
 		},
+
 		buildOutputChart() {
 			Highcharts.chart('outputChart', {
 				title: {
@@ -170,7 +171,7 @@ var turbineAndTurbineDeployedApp = new Vue({
                 series: [{
                     name: 'Heat Rate Value',
                     color: 'rgba(223, 83, 83, .5)',
-                    data: this.getDate(false, 'output', 'heatRate')
+                    data: this.getData(false, 'output', 'heatRate')
                 }]
             });
         },
