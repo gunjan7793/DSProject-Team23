@@ -38,7 +38,7 @@
         <h1>Data Table</h1>
       </div>
       <br>
-      <div class="container-fluid" id="turbineDetailsContainer">
+      <div class="container-fluid" id="sensorDataContainer">
         <div class="col">
           <table class="table col-lg-10">
             <thead>
@@ -46,7 +46,7 @@
                 <th ></th>
               </tr>
             </thead>
-            <tbody v-for="row in output">
+            <tbody v-for="row in sensorOutput">
               <tr>
                 <td >{{row.sensorDeployedId}}</td>
               </tr>

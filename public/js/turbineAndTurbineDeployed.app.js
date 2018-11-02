@@ -8,6 +8,11 @@ var turbineAndTurbineDeployedApp = new Vue({
 	},
 	computed: {},
 	methods: {
+		goToData(turbineDeployedId){
+			window.location='chartsDataTable.html?turbineDeployedId='+turbineDeployedId;
+		}
+
+
 		fetchTurbineData (turbineDeployedId) {
 			fetch('api/chartsData.php?turbineDeployedId='+turbineDeployedId)
 			.then( response => response.json() )  // "a => expression" is shorthand function declaration
