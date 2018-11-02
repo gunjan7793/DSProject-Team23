@@ -10,7 +10,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 	methods: {
 		goToData(turbineDeployedId){
 			window.location='chartsDataTable.html?turbineDeployedId='+turbineDeployedId;
-		}
+		},
 
 
 		fetchTurbineData (turbineDeployedId) {
