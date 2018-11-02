@@ -6,17 +6,17 @@ var chartTableApp = new Vue({
 	computed: {},
 	methods: {
 
-		fetchSensorTimeSeriesData (turbineDeployedId) {
-			fetch('api/chartsData.php?turbineDeployedId='+turbineDeployedId)
-			.then( response => response.json() )  // "a => expression" is shorthand function declaration
-			.then( json => {
-				chartTableApp.sensorOutput = json;
-			} )
-			.catch( err => {
-				console.log('SENSOR DATA FETCH ERROR:');
-				console.log(err);
-			})
-		},
+		// fetchSensorTimeSeriesData (turbineDeployedId) {
+		// 	fetch('api/chartsData.php?turbineDeployedId='+turbineDeployedId)
+		// 	.then( response => response.json() )  // "a => expression" is shorthand function declaration
+		// 	.then( json => {
+		// 		chartTableApp.sensorOutput = json;
+		// 	} )
+		// 	.catch( err => {
+		// 		console.log('SENSOR DATA FETCH ERROR:');
+		// 		console.log(err);
+		// 	})
+		// },
 	},
 
 	created() {
@@ -28,7 +28,7 @@ var chartTableApp = new Vue({
 		.then( response => response.json())
 		.then(json => {
 			chartTableApp.sensorOutput = json;
-			this.fetchSensorTimeSeriesData(turbineDeployedId);
+			// this.fetchSensorTimeSeriesData(turbineDeployedId);
 		})
 		.catch(err => {
 			console.log('Sensor Data fetch error: ');
