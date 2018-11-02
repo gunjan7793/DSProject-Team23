@@ -43,12 +43,30 @@
           <table class="table col-lg-10">
             <thead>
               <tr>
-                <th ></th>
+                <th >Sensor Deployed ID</th>
+                <th >Date</th>
+                <th >Output</th>
+                <th >Heat Rate</th>
+                <th >Compressor Efficiency</th>
+                <th >Availability</th>
+                <th >Reliability</th>
+                <th >Fired Hours</th>
+                <th >Trips</th>
+                <th >Starts</th>
               </tr>
             </thead>
             <tbody v-for="row in sensorOutput">
               <tr>
                 <td >{{row.sensorDeployedId}}</td>
+                <td >{{row.date}}</td>
+                <td >{{row.output}}</td>
+                <td >{{row.heatRate}}</td>
+                <td >{{row.compressorEfficiency}</td>
+                <td >{{row.availability}}</td>
+                <td >{{row.reliability}}</td>
+                <td >{{row.firedHours}}</td>
+                <td >{{row.trips}}</td>
+                <td >{{row.starts}}</td>
               </tr>
             </tbody>
           </table>
