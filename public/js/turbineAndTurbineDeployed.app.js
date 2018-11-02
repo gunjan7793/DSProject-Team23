@@ -174,7 +174,7 @@ var turbineAndTurbineDeployedApp = new Vue({
                 },
                 series: [{
                     name: 'Heat Rate Value',
-                    color: 'rgba(223, 83, 83, .5)',
+                    color: '#CF4D4D',
                     data: this.getData(false, 'output', 'heatRate')
                 }]
             });
@@ -212,6 +212,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Compressor Efficiency',
+					color: '#008080',
 					data:  this.getData(true,'date','compressorEfficiency')
 				}]
 			});
@@ -287,6 +288,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Reliability',
+					color: '#09BC98',
 					data: this.getData(true,'date','reliability')
 				}]
 			});
@@ -324,6 +326,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
                 series: [{
                     name: 'Fired Hours',
+					color: '#FF8E00',
                     data: this.getData(true,'date','firedHours')
                 }]
 
@@ -356,6 +359,7 @@ var turbineAndTurbineDeployedApp = new Vue({
                 },
 				series: [{
 					name: 'Number of Trips',
+					color: '#800000',
 					data: this.getData(true,'date','trips')
 				}]
 			});
@@ -388,6 +392,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Number of Starts',
+					color: '#008E00',
 					data: this.getData(true,'date','starts')
 				}]
 			});
