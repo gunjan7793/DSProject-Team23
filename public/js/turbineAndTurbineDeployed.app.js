@@ -11,14 +11,14 @@ var turbineAndTurbineDeployedApp = new Vue({
 			.then( response => response.json() )  // "a => expression" is shorthand function declaration
 			.then( json => {
 				turbineAndTurbineDeployedApp.output = json;
-				this.buildOutputChart();
-				this.buildHeatRateChart();
-				this.buildCompressorEfficiencyChart();
-				this.buildAvailabilityChart();
-				this.buildReliabilityChart();
-				this.buildFiredHoursChart();
-				this.buildTripsChart();
-				this.buildStartsChart();
+				// this.buildOutputChart();
+				// this.buildHeatRateChart();
+				// this.buildCompressorEfficiencyChart();
+				// this.buildAvailabilityChart();
+				// this.buildReliabilityChart();
+				// this.buildFiredHoursChart();
+				// this.buildTripsChart();
+				// this.buildStartsChart();
 			} )
 			.catch( err => {
 				console.log('TURBINE DATA FETCH ERROR:');

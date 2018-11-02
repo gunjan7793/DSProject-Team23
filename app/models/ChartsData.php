@@ -3,7 +3,7 @@
 class ChartsData
 {
 
-    // public $sensorDeployedId;
+    public $sensorDeployedId;
     public $date;
     public $output;
     public $heatRate;
@@ -15,7 +15,7 @@ class ChartsData
     public $starts;
 
     public function __construct($row) {
-      // $this->sensorDeployedId = isset($row['sensorDeployedId']) ? intval($row['sensorDeployedId']) : null;
+      $this->sensorDeployedId = intval($row['sensorDeployedId']);
       $this->date = $row['date'];
       $this->output = doubleval($row['output']);
       $this->heatRate = doubleval($row['heatRate']);
@@ -43,7 +43,7 @@ class ChartsData
         availability, reliability, firedHours, trips, starts
         FROM SensorTimeSeries AS sts, SensorDeployed AS sd
         WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = ?
-        ORDER BY date;';                
+        ORDER BY date';
 
         $statement = $db->prepare($sql);
 
