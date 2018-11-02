@@ -170,7 +170,7 @@ var turbineAndTurbineDeployedApp = new Vue({
                 series: [{
                     name: 'Heat Rate Value',
                     color: 'rgba(223, 83, 83, .5)',
-                    data: this.output.map( item => [item.output, item.heatRate] )
+                    data: this.getDate(false, 'output', 'heatRate')
                 }]
             });
         },
@@ -207,7 +207,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Compressor Efficiency',
-					data: this.output.map( item => [Date.parse(item.date), item.compressorEfficiency] )
+					data:  this.getData(true,'date','compressorEfficiency')
 				}]
 			});
 		},
@@ -245,7 +245,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 				series: [{
 					name: 'Availability',
 					color: '#000',
-					data: this.output.map( item => [Date.parse(item.date), item.availability] )
+					data: this.getData(true,'date','availability')
 				}]
 			});
 		},
@@ -282,7 +282,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Reliability',
-					data: this.output.map( item => [Date.parse(item.date), item.reliability] )
+					data: this.getData(true,'date','reliability')
 				}]
 			});
 		},
@@ -319,7 +319,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
                 series: [{
                     name: 'Fired Hours',
-                    data: this.output.map( item => [Date.parse(item.date), item.firedHours] )
+                    data: this.getData(true,'date','firedHours')
                 }]
 
             });
@@ -351,7 +351,7 @@ var turbineAndTurbineDeployedApp = new Vue({
                 },
 				series: [{
 					name: 'Number of Trips',
-					data: this.output.map( item => [Date.parse(item.date), item.trips] )
+					data: this.getData(true,'date','trips')
 				}]
 			});
 		},
@@ -383,7 +383,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 
 				series: [{
 					name: 'Number of Starts',
-					data: this.output.map( item => [Date.parse(item.date), item.starts] )
+					data: this.getData(true,'date','starts')
 				}]
 			});
 		},
