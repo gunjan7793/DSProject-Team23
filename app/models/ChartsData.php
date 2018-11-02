@@ -31,14 +31,6 @@ class ChartsData
     public static function fetchByTurbineDeployedId(int $turbineDeployedId) {
         $db = new PDO(DB_SERVER, DB_USER, DB_PW);
 
-        // $sql = 'SELECT DATE(dataCollectedDate) AS date, SUM(output) AS output, SUM(heatRate) AS heatRate,
-        //         SUM(compressorEfficiency) AS compressorEfficiency, SUM(availability) AS availability,
-        //         SUM(reliability) AS reliability, SUM(firedHours) AS firedHours, SUM(trips) AS trips,
-        //         SUM(starts) AS starts
-        //         FROM SensorTimeSeries AS sts, SensorDeployed AS sd
-        //         WHERE sts.sensorDeployedId = sd.sensorDeployedId AND sd.turbineDeployedId = ?
-        //         GROUP BY DATE(dataCollectedDate) ORDER BY date;';
-
         $sql = 'SELECT sd.sensorDeployedId, DATE(dataCollectedDate) AS date, output, heatRate, compressorEfficiency,
         availability, reliability, firedHours, trips, starts
         FROM SensorTimeSeries AS sts, SensorDeployed AS sd
