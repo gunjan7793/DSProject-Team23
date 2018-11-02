@@ -2,7 +2,8 @@ var turbineAndTurbineDeployedApp = new Vue({
 	el: '#turbineDetailsContainer',
 	data: {
 		turbines: [],
-		output:[]
+		output:[],
+		countSensors: []
 	},
 	computed: {},
 	methods: {
@@ -11,6 +12,11 @@ var turbineAndTurbineDeployedApp = new Vue({
 			.then( response => response.json() )  // "a => expression" is shorthand function declaration
 			.then( json => {
 				turbineAndTurbineDeployedApp.output = json;
+				var numberOfSensors = new Set();
+				this.output.forEach(function(row){
+					numberOfSensors.add(row.sensorDeployedId);
+				});
+				this.countSensors=Array.from(numberOfSensors);
 				// this.buildOutputChart();
 				// this.buildHeatRateChart();
 				// this.buildCompressorEfficiencyChart();
