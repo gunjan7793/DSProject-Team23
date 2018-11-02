@@ -41,23 +41,6 @@ class TurbineDeployed
     return $arr;
   }
 
-  // public static function findTurbineFromSiteTurbineId(int $siteId, int $turbineId) {
-  //   // 1. Connect to the database
-  //   $db = new PDO(DB_SERVER, DB_USER, DB_PW);
-  //   // 2. Prepare the query
-  //   $sql = 'SELECT * FROM TurbineDeployed WHERE siteId = ? AND turbineId = ?';
-  //   $statement = $db->prepare($sql);
-  //   // 3. Run the query
-  //   $success = $statement->execute([$siteId],[$turbineId]);
-  //   // 4. Handle the results
-  //   $arr = [];
-  //   while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-  //     $turbineDeployedItem =  new TurbineDeployed($row);
-  //     array_push($arr, $turbineDeployedItem);
-  //   }
-  //   return $arr;
-  // }
-
   public static function findTurbineFromSiteId(int $siteId) {
     // 1. Connect to the database
     $db = new PDO(DB_SERVER, DB_USER, DB_PW);
