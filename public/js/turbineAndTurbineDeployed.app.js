@@ -3,7 +3,8 @@ var turbineAndTurbineDeployedApp = new Vue({
 	data: {
 		turbines: [],
 		output:[],
-		countSensors: []
+		countSensors: [],
+		sensorNumber: ''
 	},
 	computed: {},
 	methods: {
@@ -17,21 +18,23 @@ var turbineAndTurbineDeployedApp = new Vue({
 					numberOfSensors.add(row.sensorDeployedId);
 				});
 				this.countSensors=Array.from(numberOfSensors);
-				// this.buildOutputChart();
-				// this.buildHeatRateChart();
-				// this.buildCompressorEfficiencyChart();
-				// this.buildAvailabilityChart();
-				// this.buildReliabilityChart();
-				// this.buildFiredHoursChart();
-				// this.buildTripsChart();
-				// this.buildStartsChart();
 			} )
 			.catch( err => {
 				console.log('TURBINE DATA FETCH ERROR:');
 				console.log(err);
 			})
 		},
-
+		getChartsData(count){
+			turbineAndTurbineDeployedApp.sensorNumber=count;
+			this.buildOutputChart();
+			this.buildHeatRateChart();
+			this.buildCompressorEfficiencyChart();
+			this.buildAvailabilityChart();
+			this.buildReliabilityChart();
+			this.buildFiredHoursChart();
+			this.buildTripsChart();
+			this.buildStartsChart();
+		},
 		buildOutputChart() {
 			Highcharts.chart('outputChart', {
 				title: {
@@ -82,11 +85,28 @@ var turbineAndTurbineDeployedApp = new Vue({
 					type: 'area',
 					name: 'Hours (Running Total)',
 					// Data needs [ [date, num], [date2, num2 ], ... ]
-					data: this.output.map( item => [Date.parse(item.date), item.output] )
+					data: this.getData(true,'date','output')
 				}]
 			});
 		},
-
+		getData(dateField,x_ax,y_ax){
+			var ChartMap = [];
+			if(dateField){
+				this.output.forEach(function(item) {
+					if(output.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
+						ChartMap.push([Date.parse(item[x_ax]), item[y_ax]]);
+					}
+				});
+			}
+			else{
+				this.output.forEach(function(item) {
+					if(output.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
+						ChartMap.push([item[x_ax], item[y_ax]]);
+					}
+				});
+			}
+			return ChartMap;
+		},
 		buildHeatRateChart() {
             Highcharts.chart('heatRateChart', {
                 chart: {
