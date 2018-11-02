@@ -17,7 +17,7 @@ var turbineAndTurbineDeployedApp = new Vue({
 				this.output.forEach(function(row){
 					numberOfSensors.add(row.sensorDeployedId);
 				});
-				this.countSensors=Array.from(numberOfSensors);
+				this.countSensors=Array.from(numberOfSensors).sort();
 			} )
 			.catch( err => {
 				console.log('TURBINE DATA FETCH ERROR:');
