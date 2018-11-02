@@ -93,14 +93,14 @@ var turbineAndTurbineDeployedApp = new Vue({
 			var ChartMap = [];
 			if(dateField){
 				this.output.forEach(function(item) {
-					if(output.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
+					if(item.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
 						ChartMap.push([Date.parse(item[x_ax]), item[y_ax]]);
 					}
 				});
 			}
 			else{
 				this.output.forEach(function(item) {
-					if(output.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
+					if(item.sensorDeployedId==turbineAndTurbineDeployedApp.sensorNumber){
 						ChartMap.push([item[x_ax], item[y_ax]]);
 					}
 				});
