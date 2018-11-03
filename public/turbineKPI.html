@@ -94,9 +94,11 @@
                   </tr>
                 </tbody>
               </table>
+              <span>Click on sensor button to view chart</span>
               <div class="text-center" v-for="count in countSensors">
                   <button type="button" class="btn btn-info" @click="getChartsData(count)" style="margin:20px;"> Sensor {{count}}</button>
               </div>
+
               <br /><br /><br />
               <div class="container-fluid">
                 <div class="row kpiData1" id="outputChart"> Output</div>
