@@ -94,9 +94,8 @@
                   </tr>
                 </tbody>
               </table>
-              <div>
-                  <span>Click on sensor button to view chart</span>
-              </div>
+              <span>Click on sensor button to view chart</span>
+              <br />
 
               <div class="text-center" v-for="count in countSensors">
                   <button type="button" class="btn btn-info" @click="getChartsData(count)" style="margin:20px;"> Sensor {{count}}</button>
